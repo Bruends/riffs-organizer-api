@@ -2,11 +2,11 @@ GET http://localhost:3000/booksapi/json/
 
 ###
 
-POST http://localhost:3000/booksapi/addUser
+POST http://localhost:3000/booksapi/adduser
 Content-Type: application/json
 
 {
-  "username": "Bruno",
-  "email" : "bruno@bruno.com",
+  "username": "Bruno4",
+  "email" : "bru@bruno.com",
   "password": "password"
 }
