@@ -19,12 +19,13 @@ booksRouter.post('/login', async (request, response) => {
 
     if(user) {
         const isPasswordMatch = await bcrypt.compare(password, user.password)
+      // verificando senha
       if(isPasswordMatch){
         const token = jwt.sign(user.username, process.env.JWT_SECRET)
         response.status(200).json({token, username: user.username})
+      } else {
+        response.status(403).json({error: 'senha incorreta'})
       }
-
-      response.status(403).json({error: 'senha incorreta'})
 
     }  else {
       response.status(403).json({error: 'Usuario não encontrado'})
