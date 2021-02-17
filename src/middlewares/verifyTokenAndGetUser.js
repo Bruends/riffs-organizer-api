@@ -9,7 +9,7 @@ function verifyTokenAndGetUser(request, response, next){
   jwt.verify(token, process.env.JWT_SECRET, (err, user) => {
     if(err) return response.status(403).send(err)
 
-    request.user = user
+    request.username = user
 
     next()
   })
