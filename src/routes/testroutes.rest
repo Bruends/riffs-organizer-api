@@ -26,3 +26,16 @@ Content-Type: application/json
 
 GET http://localhost:3000/booksapi/books/all
 Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.QnJ1bm8x.dlB0UozojUGvu9-LwXPHWUuCaFzbeAh3OKWREPlo3KQ
+
+
+###
+POST http://localhost:3000/booksapi/books/add
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.QnJ1bm8x.dlB0UozojUGvu9-LwXPHWUuCaFzbeAh3OKWREPlo3KQ
+Content-Type: application/json
+
+{
+  "book": {
+    "title" : "Conjurador",
+    "description" : "Aprendiz"
+  }
+}
