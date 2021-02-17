@@ -1,3 +1,2 @@
-Referencia/
+*.env
 node_modules/
-.env

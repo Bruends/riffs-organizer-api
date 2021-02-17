@@ -1,6 +1,10 @@
 const mongoose = require('mongoose')
 
  const openDbConnection = () => {
+  mongoose.set('useNewUrlParser', true);
+  mongoose.set('useFindAndModify', false);
+  mongoose.set('useCreateIndex', true);
+  
   mongoose.connect(
     process.env.DB_URL,
     { useNewUrlParser: true, useUnifiedTopology: true },
@@ -19,7 +23,7 @@ const mongoose = require('mongoose')
 }
 
  const closeDbConnection = (connection) => {
-  mongoose.connection.disconnect()
+  connection.disconnect()
 }
 
 module.exports = {

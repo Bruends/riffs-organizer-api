@@ -6,7 +6,18 @@ POST http://localhost:3000/booksapi/adduser
 Content-Type: application/json
 
 {
-  "username": "Bruno4",
+  "username": "Bruno1",
+  "email" : "bru1@bruno.com",
+  "password": "123"
+}
+
+###
+
+POST http://localhost:3000/booksapi/login
+Content-Type: application/json
+
+{
+  "username": "Bruno1",
   "email" : "bru@bruno.com",
-  "password": "password"
+  "password": "123"
 }
