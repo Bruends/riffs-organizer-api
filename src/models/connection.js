@@ -22,8 +22,8 @@ const mongoose = require('mongoose')
   return connection
 }
 
- const closeDbConnection = (connection) => {
-  connection.disconnect()
+ const closeDbConnection = () => {
+  mongoose.disconnect()
 }
 
 module.exports = {

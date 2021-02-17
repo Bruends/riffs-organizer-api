@@ -2,7 +2,7 @@ GET http://localhost:3000/booksapi/json/
 
 ###
 
-POST http://localhost:3000/booksapi/adduser
+POST http://localhost:3000/booksapi/user/adduser
 Content-Type: application/json
 
 {
@@ -13,7 +13,7 @@ Content-Type: application/json
 
 ###
 
-POST http://localhost:3000/booksapi/login
+POST http://localhost:3000/booksapi/user/login
 Content-Type: application/json
 
 {
@@ -21,3 +21,8 @@ Content-Type: application/json
   "email" : "bru@bruno.com",
   "password": "123"
 }
+
+###
+
+GET http://localhost:3000/booksapi/books/all
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.QnJ1bm8x.dlB0UozojUGvu9-LwXPHWUuCaFzbeAh3OKWREPlo3KQ
