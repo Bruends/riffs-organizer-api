@@ -2,8 +2,8 @@ POST http://localhost:3000/booksapi/user/adduser
 Content-Type: application/json
 
 {
-  "username": "Bruno1",
-  "email" : "bru1@bruno.com",
+  "username": "Brunos",
+  "email" : "bru@email.com",
   "password": "123"
 }
 
@@ -13,25 +13,26 @@ POST http://localhost:3000/booksapi/user/login
 Content-Type: application/json
 
 {
-  "username": "Bruno1",
-  "email" : "bru@bruno.com",
+  "username": "Brunos",
+  "email" : "bru@email.com",
   "password": "123"
 }
 
 ###
 
 GET http://localhost:3000/booksapi/books/all
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.QnJ1bm8x.dlB0UozojUGvu9-LwXPHWUuCaFzbeAh3OKWREPlo3KQ
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.QnJ1bm9z.WR9paOKGagRirWXoLS7thpPP_IiwFNQOI4nyVWwHQY4
 
 
 ###
+
 POST http://localhost:3000/booksapi/books/add
 Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.QnJ1bm8x.dlB0UozojUGvu9-LwXPHWUuCaFzbeAh3OKWREPlo3KQ
 Content-Type: application/json
 
 {
   "book": {
-    "title" : "oie",
+    "title" : "aaa",
     "description" : "Aprendiz"
   }
 }
@@ -60,3 +61,5 @@ Content-Type: application/json
     "description" : "Inquisicao"
   }
 }
+
+###
