@@ -1,7 +1,3 @@
-GET http://localhost:3000/booksapi/json/
-
-###
-
 POST http://localhost:3000/booksapi/user/adduser
 Content-Type: application/json
 
@@ -35,7 +31,32 @@ Content-Type: application/json
 
 {
   "book": {
-    "title" : "Conjurador",
+    "title" : "oie",
     "description" : "Aprendiz"
+  }
+}
+
+
+###
+
+DELETE http://localhost:3000/booksapi/books/delete
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.QnJ1bm8x.dlB0UozojUGvu9-LwXPHWUuCaFzbeAh3OKWREPlo3KQ
+Content-Type: application/json
+
+{
+  "_id" : "602e6c860c430c1e445576fa"
+}
+
+###
+
+PATCH http://localhost:3000/booksapi/books/update
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.QnJ1bm8x.dlB0UozojUGvu9-LwXPHWUuCaFzbeAh3OKWREPlo3KQ
+Content-Type: application/json
+
+{
+  "book": {
+    "_id" : "602e5e674ed10719e4f21eeb",
+    "title" : "Conjurador",
+    "description" : "Inquisicao"
   }
 }
