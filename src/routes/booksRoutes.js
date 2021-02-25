@@ -16,7 +16,7 @@ booksRouter.delete('/delete', async ( request, response ) =>{
   booksController.deleteBook(request, response)
 })
 
-//alterar
+//ALTERAR
 booksRouter.patch('/update', async (request, response) => {
   booksController.updateBook(request, response)
 })
