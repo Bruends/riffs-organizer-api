@@ -1,38 +1,38 @@
-POST http://localhost:3000/booksapi/user/adduser
+POST http://localhost:3300/booksapi/user/adduser
 Content-Type: application/json
 
 {
-  "username": "Brunos",
-  "email" : "bru@email.com",
+  "username": "Bruno1",
+  "email" : "brn1@email.com",
   "password": "123"
 }
 
 ###
 
-POST http://localhost:3000/booksapi/user/login
+POST http://localhost:3300/booksapi/user/login
 Content-Type: application/json
 
 {
-  "username": "Brunos",
-  "email" : "bru@email.com",
+  "username": "Bruno",
+  "email" : "brn@email.com",
   "password": "123"
 }
 
 ###
 
-GET http://localhost:3000/booksapi/books/all
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.QnJ1bm9z.WR9paOKGagRirWXoLS7thpPP_IiwFNQOI4nyVWwHQY4
+GET http://localhost:3300/booksapi/books/all
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.QnJ1bm8.TSl3HYo2YuYAItTrtJ3ZTm-_QUWY0bexzKix2br6dC4
 
 
 ###
 
-POST http://localhost:3000/booksapi/books/add
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.QnJ1bm8x.dlB0UozojUGvu9-LwXPHWUuCaFzbeAh3OKWREPlo3KQ
+POST http://localhost:3300/booksapi/books/add
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.QnJ1bm8.TSl3HYo2YuYAItTrtJ3ZTm-_QUWY0bexzKix2br6dC4
 Content-Type: application/json
 
 {
   "book": {
-    "title" : "aaa",
+    "title" : "conjurador",
     "description" : "Aprendiz"
   }
 }
@@ -40,23 +40,23 @@ Content-Type: application/json
 
 ###
 
-DELETE http://localhost:3000/booksapi/books/delete
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.QnJ1bm8x.dlB0UozojUGvu9-LwXPHWUuCaFzbeAh3OKWREPlo3KQ
+DELETE http://localhost:3300/booksapi/books/delete
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.QnJ1bm8.TSl3HYo2YuYAItTrtJ3ZTm-_QUWY0bexzKix2br6dC4
 Content-Type: application/json
 
 {
-  "_id" : "602e6c860c430c1e445576fa"
+  "_id" : "60fd69cd3b43c0104e506232"
 }
 
 ###
 
-PATCH http://localhost:3000/booksapi/books/update
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.QnJ1bm8x.dlB0UozojUGvu9-LwXPHWUuCaFzbeAh3OKWREPlo3KQ
+PUT http://localhost:3300/booksapi/books/update
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.QnJ1bm8.TSl3HYo2YuYAItTrtJ3ZTm-_QUWY0bexzKix2br6dC4
 Content-Type: application/json
 
 {
   "book": {
-    "_id" : "602e5e674ed10719e4f21eeb",
+    "_id" : "60fd6a693b43c0104e506233",
     "title" : "Conjurador",
     "description" : "Inquisicao"
   }

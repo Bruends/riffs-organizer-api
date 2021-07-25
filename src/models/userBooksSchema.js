@@ -1,51 +1,50 @@
-const mongoose = require('mongoose')
-require('mongoose-type-email')
+const mongoose = require("mongoose");
+require("mongoose-type-email");
 
-const userBooksSchema = new mongoose.Schema ({  
+const userBooksSchema = new mongoose.Schema({
   username: {
     type: String,
     required: true,
-    unique: true
+    unique: true,
   },
-  
+
   password: {
     type: String,
-    required: true
+    required: true,
   },
 
   email: {
     type: mongoose.SchemaTypes.Email,
     required: true,
-    unique: true
+    unique: true,
   },
 
   books: [
     {
       title: {
         type: String,
-        required: true
+        required: true,
       },
 
       description: {
-         type: String,
+        type: String,
       },
 
       cover_path: {
-        type: String
+        type: String,
       },
 
-      notes : {
-        type: String
+      notes: {
+        type: String,
       },
-      
+
       read: {
         type: Boolean,
         required: true,
-        default: false
-      }
+        default: false,
+      },
+    },
+  ],
+});
 
-    }
-  ]  
-})
-
-module.exports = mongoose.model('UserBooks', userBooksSchema)
+module.exports = mongoose.model("UserBooks", userBooksSchema);
