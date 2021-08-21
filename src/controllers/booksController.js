@@ -6,7 +6,9 @@ const updateUserBooks = async (username, booksCallback) => {
     openDbConnection();
     const user = await userBooksSchema.findOne({ username });
     const newBooks = booksCallback(user.books);
-    user.books = newBooks;
+
+    // removendo valores nulos
+    user.books = newBooks.filter((book) => book != null);
     await user.save();
     return { books: user.books };
   } catch (err) {
@@ -59,10 +61,11 @@ const showAll = async (request, response) => {
   try {
     openDbConnection();
     const user = await userBooksSchema.findOne({ username });
-    response.json(user.books);
+    response.status(200).json(user.books);
     console.log(user);
   } catch (err) {
     response.status(500).json({ error: err.message });
+    console.log(err.message);
   }
   closeDbConnection();
 };

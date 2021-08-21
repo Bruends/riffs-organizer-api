@@ -8,8 +8,8 @@ const login = async (request, response) => {
   let user;
   try {
     openDbConnection();
-    const { username, password } = request.body;
-    user = await UserBooksSchema.findOne({ username });
+    const { email, password } = request.body;
+    user = await UserBooksSchema.findOne({ email });
 
     if (user) {
       const isPasswordMatch = await bcrypt.compare(password, user.password);
