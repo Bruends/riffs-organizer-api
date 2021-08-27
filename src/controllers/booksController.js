@@ -1,5 +1,6 @@
 const { openDbConnection, closeDbConnection } = require("../models/connection");
 const userBooksSchema = require("../models/userBooksSchema");
+const consoleGroup = require("../utils/consolegroup");
 
 const updateUserBooks = async (username, booksCallback) => {
   try {
@@ -22,6 +23,8 @@ const addBook = async (request, response) => {
   const { username } = request;
   const { book } = request.body;
 
+  consoleGroup("add book request", [book]);
+
   const addResponse = await updateUserBooks(username, (userBooks) => {
     return [book, ...userBooks];
   });
@@ -35,6 +38,8 @@ const updateBook = (request, response) => {
   const { book } = request.body;
   const { _id } = book;
 
+  consoleGroup("update book request", [book]);
+
   const updateResponse = updateUserBooks(username, (userBooks) => {
     newBooks = userBooks.filter((userBook) => userBook._id != _id);
     return [book, ...newBooks];
@@ -47,6 +52,8 @@ const updateBook = (request, response) => {
 const deleteBook = (request, response) => {
   const { username } = request;
   const { _id } = request.body;
+
+  consoleGroup("del book request", [_id]);
 
   const deleteResponse = updateUserBooks(username, (userBooks) => {
     return userBooks.filter((book) => book._id != _id);
@@ -62,10 +69,9 @@ const showAll = async (request, response) => {
     openDbConnection();
     const user = await userBooksSchema.findOne({ username });
     response.status(200).json(user.books);
-    console.log(user);
   } catch (err) {
     response.status(500).json({ error: err.message });
-    console.log(err.message);
+    console.error(err.message);
   }
   closeDbConnection();
 };
