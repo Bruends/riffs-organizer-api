@@ -1,9 +1,10 @@
 const consoleGroup = (title, logsArray) => {
-  console.group(title);
+  console.group(title)
   if (logsArray)
     logsArray.forEach((log) => {
-      console.log(log);
-    });
-};
+      console.log(log)
+    })
+  console.groupEnd()
+}
 
-module.exports = consoleGroup;
+module.exports = consoleGroup

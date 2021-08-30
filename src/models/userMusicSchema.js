@@ -1,7 +1,7 @@
-const mongoose = require("mongoose");
-require("mongoose-type-email");
+const mongoose = require('mongoose')
+require('mongoose-type-email')
 
-const userBooksSchema = new mongoose.Schema({
+const userMusicSchema = new mongoose.Schema({
   username: {
     type: String,
     required: true,
@@ -18,32 +18,37 @@ const userBooksSchema = new mongoose.Schema({
     unique: true,
   },
 
-  books: [
+  musics: [
     {
       title: {
         type: String,
         required: true,
       },
 
-      description: {
-        type: String,
-      },
-
-      cover_path: {
-        type: String,
-      },
-
       notes: {
         type: String,
       },
 
-      read: {
+      video: {
+        type: String,
+      },
+
+      tab: {
+        type: String,
+      },
+
+      category: {
+        type: String,
+        default: 'outros',
+      },
+
+      learned: {
         type: Boolean,
         required: true,
         default: false,
       },
     },
   ],
-});
+})
 
-module.exports = mongoose.model("UserBooks", userBooksSchema);
+module.exports = mongoose.model('UserMusics', userMusicSchema)

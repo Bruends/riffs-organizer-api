@@ -1,18 +1,19 @@
-const jwt = require("jsonwebtoken");
+const jwt = require('jsonwebtoken')
 
 function verifyTokenAndGetUser(request, response, next) {
-  const authHeader = request.headers["authorization"];
-  const token = authHeader && authHeader.split(" ")[1];
+  const authHeader = request.headers['authorization']
+  const token = authHeader && authHeader.split(' ')[1]
 
-  if (token == null) return response.sendStatus(401);
+  if (token == null)
+    return response.status(401).json({ error: 'token invalida', auth: false })
 
   jwt.verify(token, process.env.JWT_SECRET, (err, user) => {
-    if (err) return response.status(403).send(err);
+    if (err) return response.status(403).json({ error: err, auth: false })
 
-    request.username = user;
+    request.username = user
 
-    next();
-  });
+    next()
+  })
 }
 
-module.exports = verifyTokenAndGetUser;
+module.exports = verifyTokenAndGetUser
