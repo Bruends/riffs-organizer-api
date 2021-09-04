@@ -15,6 +15,7 @@ const musicDatabase = async (username, changeMusicsCallback) => {
 
     // gera novo array apartir do callback
     const newMusics = changeMusicsCallback(user.musics)
+    consoleGroup('Músicas: ', [newMusics])
 
     // remove valores nulos e salva
     user.musics = newMusics.filter((music) => music != null)
@@ -89,9 +90,28 @@ const deleteMusic = (request, response) => {
   return response.status(500).json(deleteResponse)
 }
 
+const updateLoops = (request, response) => {
+  const { username } = request
+  const { loops, _id } = request.body
+
+  consoleGroup('update loops request', [loops])
+
+  const updateResponse = musicDatabase(username, (userMusics) => {
+    return userMusics.map((music) => {
+      if (music._id == _id) music.loops = loops
+
+      return music
+    })
+  })
+
+  if (!updateResponse.error) response.status(200).json({})
+  else response.status(500).json(updateResponse)
+}
+
 module.exports = {
   showAll,
   addMusic,
   updateMusic,
   deleteMusic,
+  updateLoops,
 }
