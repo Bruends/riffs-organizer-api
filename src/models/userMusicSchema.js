@@ -42,11 +42,13 @@ const userMusicSchema = new mongoose.Schema({
         default: 'outros',
       },
 
-      learned: {
-        type: Boolean,
-        required: true,
-        default: false,
-      },
+      loops: [
+        {
+          title: { type: String },
+          start: { type: Number },
+          end: { type: Number },
+        },
+      ],
     },
   ],
 })
