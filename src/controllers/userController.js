@@ -6,11 +6,11 @@ const jwt = require('jsonwebtoken')
 // LOGIN
 const login = async (request, response) => {
   try {
-    const { email, password } = request.body
-    if (!email || !password) return response.sendStatus(400)
+    const { username, password } = request.body
+    if (!username || !password) return response.sendStatus(400)
 
     openDbConnection()
-    const user = await UserMusicSchema.findOne({ email })
+    const user = await UserMusicSchema.findOne({ username })
 
     // verificando usuário
     if (user) {

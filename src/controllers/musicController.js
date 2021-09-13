@@ -29,6 +29,7 @@ const musicDatabase = async (username, changeMusicsCallback) => {
   }
 }
 
+// TODAS MUSICAS
 const showAll = async (request, response) => {
   const { username } = request
 
@@ -41,6 +42,7 @@ const showAll = async (request, response) => {
   return response.sendStatus(500)
 }
 
+//ADICIONAR MUSICA
 const addMusic = async (request, response) => {
   const { username } = request
   const { music } = request.body
@@ -56,6 +58,7 @@ const addMusic = async (request, response) => {
   return response.sendStatus(500)
 }
 
+// ALTERAR MUSICA
 const updateMusic = (request, response) => {
   const { username } = request
   const { music } = request.body
@@ -76,6 +79,7 @@ const updateMusic = (request, response) => {
   else response.sendStatus(500)
 }
 
+//DELETAR MUSICA
 const deleteMusic = (request, response) => {
   const { username } = request
   const { _id } = request.body
@@ -91,6 +95,7 @@ const deleteMusic = (request, response) => {
   return response.status(500).json(deleteResponse)
 }
 
+// ATUALIZAR LOOPS
 const updateLoops = (request, response) => {
   const { username } = request
   const { loops, _id } = request.body
