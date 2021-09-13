@@ -1,3 +1,4 @@
+require('express-async-errors')
 const express = require('express')
 const userRoutes = require('./src/routes/userRoutes')
 const musicRoutes = require('./src/routes/musicRoutes')
@@ -13,6 +14,12 @@ app.use(cors('*'))
 app.use('/musics/user', userRoutes)
 app.use('/musics', verifyTokenAndGetUser)
 app.use('/musics', musicRoutes)
+
+// erros não tratados
+app.use((error, request, response, next) => {
+  console.error(error)
+  response.sendStatus(500)
+})
 
 const port = 3300
 app.listen(port, () => {

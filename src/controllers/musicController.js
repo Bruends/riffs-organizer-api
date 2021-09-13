@@ -22,6 +22,7 @@ const musicDatabase = async (username, changeMusicsCallback) => {
     await user.save()
     return { musics: user.musics }
   } catch (err) {
+    consoleGroup('erro', [err.message])
     return { error: err.message }
   } finally {
     closeDbConnection()
@@ -37,7 +38,7 @@ const showAll = async (request, response) => {
 
   if (!musics.error) return response.status(200).json(musics)
 
-  return response.status(500).json(musics)
+  return response.sendStatus(500)
 }
 
 const addMusic = async (request, response) => {
@@ -50,9 +51,9 @@ const addMusic = async (request, response) => {
     return [music, ...userMusics]
   })
 
-  if (!addResponse.error) return response.status(201).json(addResponse)
+  if (!addResponse.error) return response.sendStatus(201)
 
-  return response.status(500).json(addResponse)
+  return response.sendStatus(500)
 }
 
 const updateMusic = (request, response) => {
@@ -71,8 +72,8 @@ const updateMusic = (request, response) => {
     return newMusics
   })
 
-  if (!updateResponse.error) response.status(200).json({})
-  else response.status(500).json(updateResponse)
+  if (!updateResponse.error) return response.sendStatus(200)
+  else response.sendStatus(500)
 }
 
 const deleteMusic = (request, response) => {
@@ -85,7 +86,7 @@ const deleteMusic = (request, response) => {
     return userMusics.filter((music) => music._id != _id)
   })
 
-  if (!deleteResponse.error) return response.status(200).json({})
+  if (!deleteResponse.error) return response.sendStatus(200)
 
   return response.status(500).json(deleteResponse)
 }
@@ -104,8 +105,8 @@ const updateLoops = (request, response) => {
     })
   })
 
-  if (!updateResponse.error) response.status(200).json({})
-  else response.status(500).json(updateResponse)
+  if (!updateResponse.error) response.sendStatus(200)
+  else response.sendStatus(500)
 }
 
 module.exports = {
