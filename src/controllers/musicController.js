@@ -15,7 +15,7 @@ const musicDatabase = async (username, changeMusicsCallback) => {
 
     // gera novo array apartir do callback
     const newMusics = changeMusicsCallback(user.musics)
-    consoleGroup('Músicas: ', [newMusics])
+    consoleGroup('Novas Músicas: ', [newMusics])
 
     // remove valores nulos e salva
     user.musics = newMusics.filter((music) => music != null)
@@ -63,12 +63,12 @@ const updateMusic = (request, response) => {
   consoleGroup('update music request', [music])
 
   const updateResponse = musicDatabase(username, (userMusics) => {
-    // caso a musica não seja encontrada
-    const hasMusic = userMusics.some((music) => music.id === _id)
-    if (!hasMusic) return userMusics
+    const newMusics = userMusics.map((userMusic) => {
+      if (userMusic._id == _id) return { ...music, loops: userMusic.loops }
 
-    newMusics = userMusics.filter((music) => music._id != _id)
-    return [music, ...newMusics]
+      return userMusic
+    })
+    return newMusics
   })
 
   if (!updateResponse.error) response.status(200).json({})
