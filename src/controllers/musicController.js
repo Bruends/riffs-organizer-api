@@ -53,7 +53,7 @@ const addMusic = async (request, response) => {
     return [music, ...userMusics]
   })
 
-  if (!addResponse.error) return response.sendStatus(201)
+  if (!addResponse.error) return response.status(201).json({})
 
   return response.sendStatus(500)
 }
@@ -75,7 +75,7 @@ const updateMusic = (request, response) => {
     return newMusics
   })
 
-  if (!updateResponse.error) return response.sendStatus(200)
+  if (!updateResponse.error) return response.status(200).json({})
   else response.sendStatus(500)
 }
 
@@ -90,7 +90,7 @@ const deleteMusic = (request, response) => {
     return userMusics.filter((music) => music._id != _id)
   })
 
-  if (!deleteResponse.error) return response.sendStatus(200)
+  if (!deleteResponse.error) return response.status(200).json({})
 
   return response.status(500).json(deleteResponse)
 }
@@ -110,7 +110,7 @@ const updateLoops = (request, response) => {
     })
   })
 
-  if (!updateResponse.error) response.sendStatus(200)
+  if (!updateResponse.error) response.status(200).json({})
   else response.sendStatus(500)
 }
 

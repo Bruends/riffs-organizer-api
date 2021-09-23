@@ -64,7 +64,7 @@ const addUser = async (request, response) => {
 
     //salvando usuário no db
     await user.save()
-    return response.sendStatus(201)
+    return response.status(201).json({})
   } catch (err) {
     return response.sendStatus(500)
   } finally {
